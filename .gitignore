@@ -1,0 +1,12 @@
+# Byte-compiled files
+__pycache__/
+*.pyc
+
+# Generated logs and reports (these get created when you RUN the tool,
+# they shouldn't be committed since anyone can regenerate them)
+sample_logs/*.log
+report.json
+
+# Editor/OS junk
+.vscode/
+.DS_Store
