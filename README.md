@@ -1,24 +1,22 @@
 # 🕵️ LogSleuth
 
-**A lightweight Python tool that reads server login logs and sniffs out suspicious activity — brute-force attempts, logins to accounts that don't exist, and logins at weird hours of the night.**
-
-Think of it as a detective that reads through a giant pile of server "diary entries" (logs) and circles the ones that look shady.
+**A lightweight Python tool that analyzes server login logs and flags suspicious activity, such as repeated failed login attempts, attempts to access accounts that don’t exist, or logins happening at unusual hours.**
 
 ---
 
 ## Why I built this
 
-Servers write down every login attempt in a log file — who tried to log in, from what IP address, whether it worked, and when. Attackers show up in these logs too, usually as a *pattern*: dozens of failed logins in a few seconds, or someone trying to log in as "admin," "root," or "test" over and over.
+Servers write down every login attempt in a log file - who tried to log in, from what IP address, whether it worked, and when. Attackers show up in these logs too, usually as a _pattern_: dozens of failed logins in a few seconds, or someone trying to log in as "admin," "root," or "test" over and over.
 
 LogSleuth automates the boring part (reading thousands of log lines) so a human analyst can focus on the interesting part (deciding what to do about the threats).
 
 ## What it detects
 
-| Threat | How it's found |
-|---|---|
-| 🔨 **Brute-force attempts** | Same IP address racks up N+ failed logins |
-| 👻 **Invalid user probing** | Login attempts for usernames that don't exist on the system |
-| 🌙 **Off-hours logins** | Successful logins between midnight and 5 AM (classic "nobody should be awake doing this" red flag) |
+| Threat                      | How it's found                                                                                     |
+| --------------------------- | -------------------------------------------------------------------------------------------------- |
+| 🔨 **Brute-force attempts** | Same IP address racks up N+ failed logins                                                          |
+| 👻 **Invalid user probing** | Login attempts for usernames that don't exist on the system                                        |
+| 🌙 **Off-hours logins**     | Successful logins between midnight and 5 AM (classic "nobody should be awake doing this" red flag) |
 
 ## How it works
 
@@ -86,7 +84,7 @@ logsleuth/
 
 ## Why no external libraries?
 
-Everything here uses only Python's standard library (`re`, `argparse`, `json`, `collections`, `datetime`). That was intentional — it keeps the project easy to read, easy to run anywhere, and keeps the focus on the *logic* of threat detection rather than dependency management.
+Everything here uses only Python's standard library (`re`, `argparse`, `json`, `collections`, `datetime`). That was intentional because it keeps the project easy to read, easy to run anywhere, and keeps the focus on the _logic_ of threat detection rather than dependency management.
 
 ## Possible next steps
 
